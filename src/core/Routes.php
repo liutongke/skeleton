@@ -1,0 +1,67 @@
+<?php
+/*
+ * User: keke
+ * Date: 2018/4/22
+ * Time: 0:43
+ *——————————————————佛祖保佑 ——————————————————
+ *                   _ooOoo_
+ *                  o8888888o
+ *                  88" . "88
+ *                  (| -_- |)
+ *                  O\  =  /O
+ *               ____/`---'\____
+ *             .'  \|     |//  `.
+ *            /  \|||  :  |||//  \
+ *           /  _||||| -:- |||||-  \
+ *           |   | \\  -  /// |   |
+ *           | \_|  ''\---/''  |   |
+ *           \  .-\__  `-`  ___/-. /
+ *         ___`. .'  /--.--\  `. . __
+ *      ."" '<  `.___\_<|>_/___.'  >'"".
+ *     | | :  ` - `.;`\ _ /`;.`/ - ` : | |
+ *     \  \ `-.   \_ __\ /__ _/   .-` /  /
+ *======`-.____`-.___\_____/___.-`____.-'======
+ *                   `=---='
+ *——————————————————代码永无BUG —————————————————
+ */
+
+namespace Sapi\Core;
+//路由类
+class Routes
+{
+    public static $routes = [];
+    public static $methods = [];
+    public static $callbacks = [];
+    public static $patterns = array(
+        ':any' => '[^/]+',
+        ':num' => '[0-9]+',
+        ':all' => '.*'
+    );
+    public static $error_callback;
+
+    public static function __callstatic($method, $params)
+    {
+        var_dump($method);
+        var_dump($params);
+        $url = strpos($params[0], '/') === 0 ? $params[0] : '/' . $params[0];
+        $callback = $params[1];
+
+        array_push(self::$routes, $url);
+        array_push(self::$methods, strtoupper($method));
+        array_push(self::$callbacks, $callback);
+    }
+
+    public static function route()
+    {
+        $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $method = $_SERVER['REQUEST_METHOD'];
+
+        //判断url是否存在
+        if (in_array($url, self::$routes)) {
+
+        } else {
+            //不存在
+
+        }
+    }
+}
