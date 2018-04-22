@@ -26,6 +26,7 @@
  */
 
 namespace Sapi\Core;
+
 //路由类
 class Routes
 {
@@ -41,8 +42,6 @@ class Routes
 
     public static function __callstatic($method, $params)
     {
-        var_dump($method);
-        var_dump($params);
         $url = strpos($params[0], '/') === 0 ? $params[0] : '/' . $params[0];
         $callback = $params[1];
 
@@ -55,13 +54,25 @@ class Routes
     {
         $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
-
+        
+        //判断请求的方式是否合法
+        if (!in_array($method, self::$methods)) {
+            echo '请求方式不合法';
+        }
         //判断url是否存在
         if (in_array($url, self::$routes)) {
-
+            /*
+             * 存在
+             * 判断是不是闭包函数
+             */
+            if (is_object(self::$callbacks[0])) {
+                echo '闭包函数';
+            } else {
+                echo '不是闭包函数';
+            }
         } else {
             //不存在
-
+            echo '当前路由不存在';
         }
     }
 }

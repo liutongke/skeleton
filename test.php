@@ -25,8 +25,4 @@
  *——————————————————代码永无BUG —————————————————
  */
 require_once __DIR__ . '/vendor/autoload.php';
-use Sapi\Core\Routes;
-
-Routes::get('url', function () {
-    echo '123';
-});
+require_once __DIR__ . '/routes/routes.php';

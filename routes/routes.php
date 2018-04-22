@@ -2,7 +2,7 @@
 /*
  * User: keke
  * Date: 2018/4/22
- * Time: 0:19
+ * Time: 12:09
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -24,13 +24,9 @@
  *                   `=---='
  *——————————————————代码永无BUG —————————————————
  */
+use Sapi\Core\Routes;
 
-namespace Sapi\Core;
-
-class SayHello
-{
-    public static function world()
-    {
-        return 'Hello World!';
-    }
-}
+Routes::get('url', function () {
+    echo '123';
+});
+Routes::route();
