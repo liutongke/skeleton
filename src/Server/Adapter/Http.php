@@ -66,6 +66,7 @@ class Http
 //        define("ROOTPATH", __DIR__);
 //        require_once __DIR__ . '/vendor/autoload.php';
         require_once '/usr/local/nginx/swoole/vendor/autoload.php';
+        require_once '/usr/local/nginx/swoole/routes/routes.php';
     }
 
     /**
@@ -79,7 +80,7 @@ class Http
 
         //将请求和响应对象传入到dispatcher中
 //        var_dump($request);
-        require_once '/usr/local/nginx/swoole/routes/routes.php';
+//        require_once '/usr/local/nginx/swoole/routes/routes.php';
         Routes::route($request, $response);
 
         $result = ob_get_contents();

@@ -30,4 +30,4 @@ use Sapi\Core\Routes;
 //    echo '1234567890-success';
 //});
 Routes::get('url', 'Admin\Test\Huawei@send_huawei_push');
-Routes::route();
+//Routes::route();
