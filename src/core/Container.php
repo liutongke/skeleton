@@ -28,5 +28,5 @@
 namespace Sapi\Core;
 class Container
 {
-    //IoC容易
+    //IoC容器
 }

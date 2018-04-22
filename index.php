@@ -24,8 +24,9 @@
  *                   `=---='
  *——————————————————代码永无BUG —————————————————
  */
-define("ROOTPATH", __DIR__);
-require_once __DIR__ . '/src/Sapi.php';
-use Sapi\Sapi;
-
-Sapi::run();
+//define("ROOTPATH", __DIR__);
+require_once __DIR__ . '/vendor/autoload.php';
+//use Sapi\Sapi;
+//
+//Sapi::run();
+require_once __DIR__ . '/routes/routes.php';

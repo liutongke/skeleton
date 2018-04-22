@@ -49,7 +49,7 @@ class Routes
         array_push(self::$callbacks, $callback);
     }
 
-    public static function route()
+    public static function route($req, $res)
     {
         $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];

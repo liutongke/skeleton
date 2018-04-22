@@ -25,15 +25,18 @@
  *——————————————————代码永无BUG —————————————————
  */
 
+
 namespace Sapi;
+
+use Sapi\Server\Adapter\Http;
+
 class Sapi
 {
     public static function run()
     {
-        // Autoload 自动载入
-        require ROOTPATH . '/vendor/autoload.php';
-//var_dump(ROOTPATH);
-        require ROOTPATH . '/routes/routes.php';
+        $swoole_res = new Http();
+        $swoole_res->run();
+////        require ROOTPATH . '/routes/routes.php';
     }
 }
 

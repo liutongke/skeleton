@@ -26,11 +26,63 @@
  */
 
 namespace Sapi\Server\Adapter;
+
+use Sapi\Core\Routes;
+
 class Http
 {
+    //http server 对象
+    private $_server;
+
+    /**
+     * 初始化http server对象
+     *
+     **/
+    public function __construct()
+    {
+        $this->_server = new \swoole_http_server("0.0.0.0", 9501);;
+    }
+
     //swoole http的启动类
     public function run()
     {
+        //http server设置
+        $this->_server->set(
+            array(
+                'worker_num' => 2
+            )
+        );
+        $this->_server->on('WorkerStart', array($this, 'onWorkerStart'));
+        //事件绑定
+        $this->_server->on('request', array($this, 'onRequest'));
+        $this->_server->on('close', array($this, 'onClose'));
+        //启动http server
+        $this->_server->start();
+    }
 
+    //worker
+    public function onWorkerStart()
+    {
+//        define("ROOTPATH", __DIR__);
+//        require_once __DIR__ . '/vendor/autoload.php';
+        require_once '/usr/local/nginx/swoole/vendor/autoload.php';
+    }
+
+    /**
+     * 请求处理函数
+     * @param swoole\http\request $req 请求对象(包含header,server等属性)
+     * @param swoole\http\response $res 响应对象
+     **/
+    public function onRequest($request, $response)
+    {
+        //将请求和响应对象传入到dispatcher中
+//        var_dump($request);
+        Routes::route($request, $response);
+//        Dispatcher::getInstance()->route($request, $response);
+    }
+
+    public function onClose()
+    {
+        echo 'closing.....';
     }
 }
