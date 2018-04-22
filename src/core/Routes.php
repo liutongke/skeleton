@@ -53,7 +53,7 @@ class Routes
     {
         $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
-        
+
         //判断请求的方式是否合法
         if (!in_array($method, self::$methods)) {
             echo '请求方式不合法';
