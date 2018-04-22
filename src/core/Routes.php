@@ -53,7 +53,7 @@ class Routes
     {
         $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
-        var_dump(self::$callbacks);
+        
         //判断请求的方式是否合法
         if (!in_array($method, self::$methods)) {
             echo '请求方式不合法';
@@ -76,7 +76,8 @@ class Routes
                 $obj = new $class_name();        //实例化控制器
 //                $action_name = trim(strrchr($arr[0], '\\'), '\\');
                 //调用控制器中的方法
-                $obj->$arr[1]();
+                $action_name = $arr[1];
+                $obj->$action_name();
             }
         } else {
             //不存在
