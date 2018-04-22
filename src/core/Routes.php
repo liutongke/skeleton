@@ -44,7 +44,6 @@ class Routes
     {
         $url = strpos($params[0], '/') === 0 ? $params[0] : '/' . $params[0];
         $callback = $params[1];
-
         array_push(self::$routes, $url);
         array_push(self::$methods, strtoupper($method));
         array_push(self::$callbacks, $callback);
@@ -54,21 +53,29 @@ class Routes
     {
         $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
-        
+        var_dump(self::$callbacks);
         //判断请求的方式是否合法
         if (!in_array($method, self::$methods)) {
             echo '请求方式不合法';
         }
         //判断url是否存在
-        if (in_array($url, self::$routes)) {
+        if (!in_array($url, self::$routes)) {
             /*
              * 存在
              * 判断是不是闭包函数
              */
             if (is_object(self::$callbacks[0])) {
                 echo '闭包函数';
+                call_user_func(self::$callbacks[0]);
             } else {
                 echo '不是闭包函数';
+//                'huawei', 'Admin\Test\Huawei@send_huawei_push'
+//                var_dump(explode('@', self::$callbacks[0]));
+                $arr = explode('@', self::$callbacks[0]);
+                $obj = new $arr[0]();        //实例化控制器
+//                $action_name = trim(strrchr($arr[0], '\\'), '\\');
+                //调用控制器中的方法
+                $obj->$arr[1]();
             }
         } else {
             //不存在

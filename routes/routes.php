@@ -26,7 +26,8 @@
  */
 use Sapi\Core\Routes;
 
-Routes::get('url', function () {
-    echo '123';
-});
+//Routes::get('url', function () {
+//    echo '1234567890-';
+//});
+Routes::get('url', 'Admin\Test\Huawei@send_huawei_push');
 Routes::route();

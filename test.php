@@ -24,5 +24,7 @@
  *                   `=---='
  *——————————————————代码永无BUG —————————————————
  */
-require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/routes/routes.php';
+define("ROOTPATH", __DIR__);
+
+require_once ROOTPATH . '/vendor/autoload.php';
+require_once ROOTPATH . '/routes/routes.php';
