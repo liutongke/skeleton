@@ -30,6 +30,7 @@ namespace Sapi\Core;
 //路由类
 class Routes
 {
+    private static $_instance;
     public static $routes = [];
     public static $methods = [];
     public static $callbacks = [];
@@ -39,6 +40,14 @@ class Routes
         ':all' => '.*'
     );
     public static $error_callback;
+
+    public static function getInstance()
+    {
+        if (!self::$_instance || !self::$_instance instanceof self) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
 
     public static function __callstatic($method, $params)
     {
@@ -71,9 +80,11 @@ class Routes
         //判断请求的方式是否合法
         if (!in_array($method, self::$methods)) {
             echo '请求方式不合法';
+            return;
         }
+//        var_dump(self::$routes);
         //判断url是否存在
-        if (!in_array($url, self::$routes)) {
+        if (in_array($url, self::$routes)) {
             /*
              * 存在
              * 判断是不是闭包函数
@@ -82,6 +93,7 @@ class Routes
             if (is_object(self::$callbacks[0])) {
                 echo '闭包函数';
                 call_user_func(self::$callbacks[0]);
+                return;
             } else {
                 echo '不是闭包函数';
 //                'huawei', 'Admin\Test\Huawei@send_huawei_push'
@@ -97,6 +109,7 @@ class Routes
         } else {
             //不存在
             echo '当前路由不存在';
+            return;
         }
     }
 }

@@ -55,7 +55,6 @@ class Http
         $this->_server->on('WorkerStart', array($this, 'onWorkerStart'));
         //事件绑定
         $this->_server->on('request', array($this, 'onRequest'));
-//        $this->_server->on('close', array($this, 'onClose'));
         //启动http server
         $this->_server->start();
     }
@@ -63,8 +62,6 @@ class Http
     //worker
     public function onWorkerStart()
     {
-//        define("ROOTPATH", __DIR__);
-//        require_once __DIR__ . '/vendor/autoload.php';
         require_once '/usr/local/nginx/swoole/vendor/autoload.php';
         require_once '/usr/local/nginx/swoole/routes/routes.php';
     }
@@ -78,20 +75,14 @@ class Http
     {
         ob_start();
 
-        //将请求和响应对象传入到dispatcher中
-//        var_dump($request);
-//        require_once '/usr/local/nginx/swoole/routes/routes.php';
-        Routes::route($request, $response);
+        //将请求和响应对象传入到Routes中
+        Routes::getInstance()->route($request, $response);
 
         $result = ob_get_contents();
+
         ob_end_clean();
+
         $response->header('content-type', 'text/html; charset=UTF-8', false);
         $response->end($result);
-//        Dispatcher::getInstance()->route($request, $response);
     }
-
-//    public function onClose()
-//    {
-//        echo 'closing.....';
-//    }
 }
