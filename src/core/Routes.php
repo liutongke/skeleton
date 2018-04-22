@@ -49,11 +49,16 @@ class Routes
         array_push(self::$callbacks, $callback);
     }
 
-    public static function route($req, $res)
+    public static function route($request, $response)
     {
-        $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $method = $_SERVER['REQUEST_METHOD'];
+        //普通请求
+//        $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+//        $method = $_SERVER['REQUEST_METHOD'];
 
+        //swoole请求
+        var_dump($response);
+        $method ='';
+        $url = '';
         //判断请求的方式是否合法
         if (!in_array($method, self::$methods)) {
             echo '请求方式不合法';

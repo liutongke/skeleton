@@ -26,7 +26,7 @@
  */
 //define("ROOTPATH", __DIR__);
 require_once __DIR__ . '/vendor/autoload.php';
-//use Sapi\Sapi;
-//
-//Sapi::run();
+use Sapi\Sapi;
+
+Sapi::run();
 require_once __DIR__ . '/routes/routes.php';
