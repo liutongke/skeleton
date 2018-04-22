@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Sapi\\Server\\Adapter\\' => array($baseDir . '/src/Server/Adapter'),
     'Sapi\\Core\\' => array($baseDir . '/src/core'),
+    'Sapi\\' => array($baseDir . '/src'),
 );

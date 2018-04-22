@@ -55,7 +55,7 @@ class Http
         $this->_server->on('WorkerStart', array($this, 'onWorkerStart'));
         //事件绑定
         $this->_server->on('request', array($this, 'onRequest'));
-        $this->_server->on('close', array($this, 'onClose'));
+//        $this->_server->on('close', array($this, 'onClose'));
         //启动http server
         $this->_server->start();
     }
@@ -75,14 +75,21 @@ class Http
      **/
     public function onRequest($request, $response)
     {
+        ob_start();
+        
         //将请求和响应对象传入到dispatcher中
 //        var_dump($request);
+        require_once '/usr/local/nginx/swoole/routes/routes.php';
         Routes::route($request, $response);
+
+        $result = ob_get_contents();
+        ob_end_clean();
+        $response->end($result);
 //        Dispatcher::getInstance()->route($request, $response);
     }
 
-    public function onClose()
-    {
-        echo 'closing.....';
-    }
+//    public function onClose()
+//    {
+//        echo 'closing.....';
+//    }
 }

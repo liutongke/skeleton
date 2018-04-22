@@ -11,6 +11,7 @@ class ComposerStaticInitf86427054ee2801ac5054c4df10da396
         array (
             'Sapi\\Server\\Adapter\\' => 20,
             'Sapi\\Core\\' => 10,
+            'Sapi\\' => 5,
         ),
     );
 
@@ -22,6 +23,10 @@ class ComposerStaticInitf86427054ee2801ac5054c4df10da396
         'Sapi\\Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/core',
+        ),
+        'Sapi\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

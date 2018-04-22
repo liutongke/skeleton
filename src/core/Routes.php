@@ -56,11 +56,13 @@ class Routes
 //        $method = $_SERVER['REQUEST_METHOD'];
 
         //swoole请求
-        var_dump($response);
-        $method ='';
-        $url = '';
+//        var_dump($request->server['request_method']);
+        $method = $request->server['request_method'];
+        $url = $request->server['request_uri'];
+//        var_dump($method);
+//        var_dump($url);
         //判断请求的方式是否合法
-        if (!in_array($method, self::$methods)) {
+        if (in_array($method, self::$methods)) {
             echo '请求方式不合法';
         }
         //判断url是否存在
@@ -69,6 +71,7 @@ class Routes
              * 存在
              * 判断是不是闭包函数
              */
+//            var_dump(self::$callbacks);
             if (is_object(self::$callbacks[0])) {
                 echo '闭包函数';
                 call_user_func(self::$callbacks[0]);
