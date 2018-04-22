@@ -76,7 +76,7 @@ class Http
     public function onRequest($request, $response)
     {
         ob_start();
-        
+
         //将请求和响应对象传入到dispatcher中
 //        var_dump($request);
         require_once '/usr/local/nginx/swoole/routes/routes.php';
@@ -84,6 +84,7 @@ class Http
 
         $result = ob_get_contents();
         ob_end_clean();
+        $response->header('content-type', 'text/html; charset=UTF-8', false);
         $response->end($result);
 //        Dispatcher::getInstance()->route($request, $response);
     }
