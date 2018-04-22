@@ -1,8 +1,8 @@
 <?php
 /*
  * User: keke
- * Date: 2018/4/22
- * Time: 14:45
+ * Date: 2018/4/21
+ * Time: 23:41
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -25,12 +25,19 @@
  *——————————————————代码永无BUG —————————————————
  */
 
-namespace Sapi\Core;
-class Api
+namespace Sapi;
+class Sapi
 {
-    //Api输出类
-    public static function response($data)
+    public static function run()
     {
-        var_dump(json_encode($data));
+        // Autoload 自动载入
+        require ROOTPATH . '/vendor/autoload.php';
+//var_dump(ROOTPATH);
+        require ROOTPATH . '/routes/routes.php';
     }
 }
+
+//define("ROOTPATH", __DIR__);
+//
+//require_once ROOTPATH . '/vendor/autoload.php';
+//require_once ROOTPATH . '/routes/routes.php';

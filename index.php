@@ -1,8 +1,8 @@
 <?php
 /*
  * User: keke
- * Date: 2018/4/21
- * Time: 23:41
+ * Date: 2018/4/22
+ * Time: 16:16
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -25,6 +25,7 @@
  *——————————————————代码永无BUG —————————————————
  */
 define("ROOTPATH", __DIR__);
+require_once __DIR__ . '/src/Sapi.php';
+use Sapi\Sapi;
 
-require_once ROOTPATH . '/vendor/autoload.php';
-require_once ROOTPATH . '/routes/routes.php';
+Sapi::run();
