@@ -9,14 +9,19 @@ class ComposerStaticInitf86427054ee2801ac5054c4df10da396
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
-            'Sapi\\' => 5,
+            'Sapi\\Server\\Adapter\\' => 20,
+            'Sapi\\Core\\' => 10,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Sapi\\' => 
+        'Sapi\\Server\\Adapter\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/src/Server/Adapter',
+        ),
+        'Sapi\\Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/core',
         ),
     );
 
