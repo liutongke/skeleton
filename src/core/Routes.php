@@ -72,7 +72,8 @@ class Routes
 //                'huawei', 'Admin\Test\Huawei@send_huawei_push'
 //                var_dump(explode('@', self::$callbacks[0]));
                 $arr = explode('@', self::$callbacks[0]);
-                $obj = new $arr[0]();        //实例化控制器
+                $class_name = $arr[0] . '\\' . $arr[1];
+                $obj = new $class_name();        //实例化控制器
 //                $action_name = trim(strrchr($arr[0], '\\'), '\\');
                 //调用控制器中的方法
                 $obj->$arr[1]();
