@@ -4,27 +4,42 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitf86427054ee2801ac5054c4df10da396
+class ComposerStaticInit48abcfce17be24b457a7883d2701959b
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'Sapi\\Server\\Adapter\\' => 20,
+            'Sapi\\Core\\' => 10,
             'Sapi\\' => 5,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Sapi\\Server\\Adapter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sapi/framework/src/Server/Adapter',
+        ),
+        'Sapi\\Core\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sapi/framework/src/core',
+        ),
         'Sapi\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/..' . '/sapi/framework/src',
         ),
+    );
+
+    public static $classMap = array (
+        'App\\Controllers\\Test' => __DIR__ . '/../..' . '/app/controllers/Test.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitf86427054ee2801ac5054c4df10da396::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitf86427054ee2801ac5054c4df10da396::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit48abcfce17be24b457a7883d2701959b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit48abcfce17be24b457a7883d2701959b::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit48abcfce17be24b457a7883d2701959b::$classMap;
 
         }, null, ClassLoader::class);
     }

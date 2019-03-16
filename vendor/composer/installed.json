@@ -1,1 +1,35 @@
-[]
+[
+    {
+        "name": "sapi/framework",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://gitee.com/tongke/sapi-core.git",
+            "reference": "ea5156d4e2c5f57e8c7180655a89946af95cfa0e"
+        },
+        "require": {
+            "php": ">=7.0"
+        },
+        "time": "2018-04-22T16:48:19+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Sapi\\": "src",
+                "Sapi\\Core\\": "src/core",
+                "Sapi\\Server\\Adapter\\": "src/Server/Adapter"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP科科",
+                "email": "liutongke@live.com"
+            }
+        ],
+        "description": "The Sapi Framework."
+    }
+]
