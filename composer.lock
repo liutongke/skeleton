@@ -4,16 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c00b57959715c57e34ed3c9ed29ea04d",
-    "packages": [],
+    "content-hash": "914ddeed9fa96fbaa76e4ecf7ae3de93",
+    "packages": [
+        {
+            "name": "sapi/framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://gitee.com/tongke/sapi-core.git",
+                "reference": "ea5156d4e2c5f57e8c7180655a89946af95cfa0e"
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sapi\\": "src",
+                    "Sapi\\Core\\": "src/core",
+                    "Sapi\\Server\\Adapter\\": "src/Server/Adapter"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP科科",
+                    "email": "liutongke@live.com"
+                }
+            ],
+            "description": "The Sapi Framework.",
+            "time": "2018-04-22T16:48:19+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "sapi/framework": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {
-        "php": ">=7.0"
-    },
+    "platform": [],
     "platform-dev": []
 }

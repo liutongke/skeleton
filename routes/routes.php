@@ -2,7 +2,7 @@
 /*
  * User: keke
  * Date: 2018/4/22
- * Time: 12:09
+ * Time: 12:42
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -24,10 +24,10 @@
  *                   `=---='
  *——————————————————代码永无BUG —————————————————
  */
-use Sapi\Core\Routes;
+use Sapi\Routes;
 
-Routes::get('url', function () {
-    echo '1234567890-success';
-});
-//Routes::get('url', 'Admin\Test\Huawei@send_huawei_push');
+//Routes::get('url', function () {
+//    echo '123';
+//});
+//Routes::get('test', 'App\Controllers@Test');
 //Routes::route();

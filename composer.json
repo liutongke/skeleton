@@ -1,20 +1,17 @@
 {
-  "name": "sapi/framework",
-  "description": "The Sapi Framework.",
-  "license": "MIT",
-  "authors": [
+  "require": {
+    "sapi/framework": "dev-master"
+  },
+  "repositories": [
     {
-      "name": "PHP科科",
-      "email": "liutongke@live.com"
+      "type": "git",
+      "url": "https://gitee.com/tongke/sapi-core.git"
     }
   ],
-  "minimum-stability": "dev",
-  "require": {
-    "php": ">=7.0"
-  },
   "autoload": {
-    "psr-4": {
-      "Sapi\\": "src"
-    }
+    "classmap": [
+      "app/controllers",
+      "app/models"
+    ]
   }
 }
