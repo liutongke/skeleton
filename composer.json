@@ -14,9 +14,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Sapi\\": "src",
-      "Sapi\\Core\\": "src/core",
-      "Sapi\\Server\\Adapter\\": "src/Server/Adapter"
+      "Sapi\\": "src"
     }
   }
 }

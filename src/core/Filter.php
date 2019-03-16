@@ -1,8 +1,9 @@
 <?php
+
 /*
  * User: keke
- * Date: 2018/4/21
- * Time: 23:41
+ * Date: 2018/4/23
+ * Time: 2:03
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -25,16 +26,16 @@
  *——————————————————代码永无BUG —————————————————
  */
 
-
-namespace Sapi;
-
-use Sapi\Server\Adapter\Http;
-
-class Sapi
+namespace Sapi\Core;
+class Filter
 {
-    public static function run()
+    //过滤前端输入
+    public static function escape($string)
     {
-        $swoole_res = new Http();
-        $swoole_res->run();
+        if (is_numeric($string)) {
+            return $string;
+        }
+        $string = htmlspecialchars($string, ENT_QUOTES, 'utf-8');
+        return $string;
     }
 }
