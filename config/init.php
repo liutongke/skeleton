@@ -32,5 +32,6 @@ date_default_timezone_set('Asia/Shanghai');
 $di = \Sapi\kernal::one();//全局注册
 $di->isCli = preg_match("/cli/i", php_sapi_name()) ? true : false;//是否是cli模式
 $di->config = new Sapi\Config\FileConfig(API_ROOT . '/config/config.php');
+$di->logs = new \Sapi\Config\FileLogs(API_ROOT . '/storage/');//日志保存位置
 $di->request = new \Sapi\Request();
 $di->response = new \Sapi\Response();
