@@ -31,5 +31,6 @@ require API_ROOT . '/routes/routes.php';
 date_default_timezone_set('Asia/Shanghai');
 $di = \Sapi\kernal::one();//全局注册
 $di->isCli = preg_match("/cli/i", php_sapi_name()) ? true : false;//是否是cli模式
+$di->config = new Sapi\Config\FileConfig(API_ROOT . '/config/config.php');
 $di->request = new \Sapi\Request();
 $di->response = new \Sapi\Response();

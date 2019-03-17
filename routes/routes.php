@@ -29,5 +29,5 @@ use Sapi\Routes;
 //Routes::get('url', function () {
 //    echo '123';
 //});
-//Routes::get('test', 'App\Controllers@Test');
-//Routes::route();
+Routes::get('test', function (){return 123;});
+Routes::get('index', 'App\Controllers@Index');
