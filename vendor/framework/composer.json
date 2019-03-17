@@ -1,0 +1,23 @@
+{
+  "name": "sapi/framework",
+  "description": "The Sapi Framework.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "PHP科科",
+      "email": "liutongke@live.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sapi\\": "src"
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  }
+}
