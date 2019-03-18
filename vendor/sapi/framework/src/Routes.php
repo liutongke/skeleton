@@ -32,7 +32,7 @@ class Routes
 {
     private static $_instance;
     public static $routes = [];
-    public static $methods = ['get', 'post'];
+    public static $methods = ['get', 'post', 'cli'];
     public static $callbacks = [];
     public static $patterns = array(
         ':any' => '[^/]+',
@@ -93,7 +93,6 @@ class Routes
             //不存在
             $responseData = '当前路由不存在';
         }
-        var_dump($di->config->get('mysql'));
         return $di->response->setData($responseData);
     }
 }

@@ -49,23 +49,18 @@ class FileConfig implements Config
     {
         // TODO: Implement get() method.
         $keyArr = explode('.', $key);
-        $fileName = $keyArr['0'];
-
-        if (!isset($this->map[$fileName])) {
-            $this->map[$fileName] = $this->loadConfig($fileName);
+        if (!isset($this->map)) {
+            $this->loadConfig();
         }
-
-        $rs = NULL;
-        $preRs = $this->map;
-        foreach ($keyArr as $subKey) {
-            if (!isset($preRs[$subKey])) {
-                $rs = NULL;
-                break;
+        $val = $this->map;
+        foreach ($keyArr as $key => $value) {//循环赋值去除数组
+            if (!isset($val[$value])) {
+                $val = null;
             }
-            $rs = $preRs[$subKey];
-            $preRs = $rs;
+            $rs = $val[$value];
+            $val = $rs;
         }
-        return $rs !== NULL ? $rs : $default;
+        return $val !== NULL ? $val : $default;
     }
 
     /**
@@ -74,6 +69,6 @@ class FileConfig implements Config
      */
     private function loadConfig()
     {
-        return @include $this->path;
+        $this->map = $configList = @include $this->path;
     }
 }

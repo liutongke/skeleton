@@ -76,8 +76,7 @@ class Request
     {
         if ($this->di->isCli) {
             $cli = $this->getClitArgs();
-
-
+            $this->requestData['REQUEST_METHOD'] = 'cli';
             return $this->requestData['GET_URL'] = $cli['url'];
         } else {
             return $this->requestData = $this->getHeader();
