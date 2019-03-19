@@ -46,6 +46,18 @@ class FileLogs implements Logs
         $this->filePath = $filePath;
     }
 
+
+    /**
+     * @desc 判断文件夹是否存在，不存在则创建
+     * @param $path
+     */
+    function mkFolder()
+    {
+        if (!is_readable($this->filePath)) {
+            is_file($this->filePath) or mkdir($this->filePath, 0700);
+        }
+    }
+
     /**
      * @desc 系统异常类日记
      * @param $msg
@@ -81,8 +93,9 @@ class FileLogs implements Logs
      */
     private function log($tyeInfo, $msg)
     {
-        return $path = $this->filePath . '/' . $tyeInfo;
-        $newMsg = date('Y-m-d H:i:s') . '|' . $tyeInfo . '|' . json_encode($msg);
+        $this->mkFolder($this->filePath);
+        $path = $this->filePath . strtolower($tyeInfo) . '.txt';
+        $newMsg = date('Y-m-d H:i:s') . '|' . $tyeInfo . '|' . json_encode($msg) . "\n";
         return $this->saveLog($path, $newMsg);
     }
 
@@ -93,6 +106,6 @@ class FileLogs implements Logs
      */
     private function saveLog($path, $msg)
     {
-        return @file_put_contents($path, $msg, FILE_APPEND | LOCK_EX);
+        return @file_put_contents($path, $msg, FILE_APPEND);
     }
 }

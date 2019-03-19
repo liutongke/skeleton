@@ -25,7 +25,8 @@
  *——————————————————代码永无BUG —————————————————
  */
 // 定义项目路径
-defined('API_ROOT') || define('API_ROOT', dirname(__DIR__) . '../');
+//defined('API_ROOT') || define('API_ROOT', dirname(__DIR__) . '../');
+defined('API_ROOT') || define('API_ROOT', dirname(__DIR__));
 require API_ROOT . '\config\init.php';
 //var_dump($di->request);
 \Sapi\Sapi::run();//输出
