@@ -25,15 +25,17 @@
  *——————————————————代码永无BUG —————————————————
  */
 
-namespace Sapi\Config;
+namespace Sapi\Logs;
 
-use Sapi\Config;
 use Sapi\Logs;
 
 //记录日志
 class FileLogs implements Logs
 {
-    private $filePath;
+    private $filePath;//日志保存路径
+    private static $ERROR = 'error';
+    private static $INFO = 'INFO';
+    private static $DEBUG = 'debug';
 
     /**
      * fileLogs constructor.
@@ -44,22 +46,53 @@ class FileLogs implements Logs
         $this->filePath = $filePath;
     }
 
-    public function get()
+    /**
+     * @desc 系统异常类日记
+     * @param $msg
+     */
+    public function error($msg)
     {
+        return $this->log(self::$ERROR, $msg);
     }
 
-    public function set($msg)
+    /**
+     * @desc 业务纪录类日记
+     * @param $msg
+     */
+    public function info($msg)
     {
-        return @file_put_contents($this->filePath, $msg);
+        return $this->log(self::$INFO, $msg);
     }
 
-    private function log()
+    /**
+     * @desc 开发调试类日记
+     * @param $msg
+     */
+    public function debug($msg)
     {
-//        2018-09-10 12:01:33|ERROR|alert_err:App.Auth.Index|<br />
-//<b>Warning</b>:  Redis::expire() expects exactly 2 parameters, 1 given in <b>D:\phpstudy\project\h5_patch_color_php\src\app\Model\LoginLogDao.php</b> on line <b>51</b><br />
-//        2018-09-10 10:23:46|DEBUG|REQ:App.Site.Index|
-//  =>[13,"127.0.0.1",null,{"s":"App.Site.Index"},[]]
-//    {"code":0,"data":{"title":"Hello Color","version":"2.2.3","time":1536546226},"debug":{"stack":["[#0 - 0ms]D:\\phpstudy\\project\\h5_patch_color_php\\public\\index.php(8)"],"sqls":[],"version":"2.2.3"}}
-        return date('Y-m-d H:i:s').'|'.'报错级别|';
+        return $this->log(self::$DEBUG, $msg);
+    }
+
+    /**
+     * @desc 记录日志信息
+     * @param $tyeInfo 日志类型
+     * @param $msg 日志信息
+     * @return string
+     */
+    private function log($tyeInfo, $msg)
+    {
+        return $path = $this->filePath . '/' . $tyeInfo;
+        $newMsg = date('Y-m-d H:i:s') . '|' . $tyeInfo . '|' . json_encode($msg);
+        return $this->saveLog($path, $newMsg);
+    }
+
+    /**
+     * @desc 保存文本
+     * @param $msg 保存信息
+     * @return bool|int
+     */
+    private function saveLog($path, $msg)
+    {
+        return @file_put_contents($path, $msg, FILE_APPEND | LOCK_EX);
     }
 }

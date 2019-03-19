@@ -27,11 +27,10 @@
 // Autoload 自动载入
 require API_ROOT . '/vendor/autoload.php';
 require API_ROOT . '/routes/routes.php';
-// 时区设置
-date_default_timezone_set('Asia/Shanghai');
+date_default_timezone_set('Asia/Shanghai');// 时区设置
 $di = \Sapi\kernal::one();//全局注册
 $di->isCli = preg_match("/cli/i", php_sapi_name()) ? true : false;//是否是cli模式
 $di->config = new Sapi\Config\FileConfig(API_ROOT . '/config/config.php');
-//$di->logs = new \Sapi\Config\FileLogs(API_ROOT . '/storage/');//日志保存位置
+$di->logs = new \Sapi\Logs\FileLogs(API_ROOT . '/storage/logs/');//日志保存位置
 $di->request = new \Sapi\Request();
 $di->response = new \Sapi\Response();

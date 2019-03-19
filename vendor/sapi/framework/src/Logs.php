@@ -28,7 +28,9 @@
 namespace Sapi;
 interface Logs
 {
-    public function get();
+    public function info($msg);
 
-    public function set($msg);
+    public function error($msg);
+
+    public function debug($msg);
 }

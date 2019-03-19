@@ -27,17 +27,19 @@
 
 namespace App\Controllers;
 
-use Sapi\Core\Api;
+use Sapi\kernal;
 
 class Test
 {
     public function Test()
     {
-//        echo 'success';
+        return kernal::one()->logs->info([12213333333333333333333]);
+        return count(false);
+        $modle = new Models();
         $arr = [
-            'keke' => '0825',
+            'modle' => $modle,
             'result' => 'success'
         ];
-        return Api::response($arr);
+        return $arr;
     }
 }

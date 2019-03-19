@@ -92,6 +92,7 @@ class Routes
                 $responseData = '当前路由不存在';
             }
         } catch (\Exception $e) {
+            var_dump($e->getMessage());
             $responseData = ['error' => 404];
         }
         return $di->response->setData($responseData);
