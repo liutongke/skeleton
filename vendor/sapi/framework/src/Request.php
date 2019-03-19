@@ -47,7 +47,10 @@ class Request
         return (new self())->route();
     }
 
-
+    /**
+     * @desc 调用路由进行解析
+     * @return mixed
+     */
     public function route()
     {
         return Routes::route($this->requestData, $this->responseData);

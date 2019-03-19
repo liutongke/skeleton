@@ -66,32 +66,33 @@ class Routes
     public static function route($request, $response)
     {
         $di = kernal::one();
-        //普通请求
-        $url = parse_url($request['GET_URL'], PHP_URL_PATH);
-        $method = $request['REQUEST_METHOD'];//请求方式
-        //判断请求的方式是否合法
-        if (!in_array($method, self::$methods)) {
-            $responseData = '请求方式不合法';
-        }
-        //判断url是否存在
-        if (in_array($url, self::$routes)) {
-            $key = array_search($url, self::$routes);//对应的路由下标
-            if (is_object(self::$callbacks[$key])) {//判断是不是闭包函数
-                $responseData = call_user_func(self::$callbacks[$key]);
-            } else {
+        try {
+            //普通请求
+            $url = parse_url($request['GET_URL'], PHP_URL_PATH);
+            $method = $request['REQUEST_METHOD'];//请求方式
+            //判断请求的方式是否合法
+            if (!in_array($method, self::$methods)) {
+                $responseData = '请求方式不合法';
+            }
+            //判断url是否存在
+            if (in_array($url, self::$routes)) {
+                $key = array_search($url, self::$routes);//对应的路由下标
+                if (is_object(self::$callbacks[$key])) {//判断是不是闭包函数
+                    $responseData = call_user_func(self::$callbacks[$key]);
+                } else {
 //                'huawei', 'Admin\Test\Huawei@send_huawei_push'
 //                var_dump(explode('@', self::$callbacks[0]));
-                $arr = explode('@', self::$callbacks[$key]);
-                $class_name = $arr['0'] . '\\' . $arr['1'];
-                $obj = new $class_name();        //实例化控制器
-//                $action_name = trim(strrchr($arr[0], '\\'), '\\');
-                //调用控制器中的方法
-                $action_name = $arr['1'];
-                $responseData = $obj->$action_name();
+                    $arr = explode('@', self::$callbacks[$key]);
+                    $obj = new $arr['0']();        //实例化控制器
+                    $action_name = $arr['1'];//调用控制器中的方法
+                    $responseData = $obj->$action_name();
+                }
+            } else {
+                //不存在
+                $responseData = '当前路由不存在';
             }
-        } else {
-            //不存在
-            $responseData = '当前路由不存在';
+        } catch (\Exception $e) {
+            $responseData = ['error' => 404];
         }
         return $di->response->setData($responseData);
     }
