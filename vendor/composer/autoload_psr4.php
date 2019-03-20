@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Sapi\\Server\\Adapter\\' => array($vendorDir . '/sapi/framework/src/Server/Adapter'),
-    'Sapi\\Core\\' => array($vendorDir . '/sapi/framework/src/core'),
-    'Sapi\\' => array($vendorDir . '/sapi/framework/src'),
+    'pdo\\' => array($vendorDir . '/mysql/pdo/src'),
+    'Sapi\\' => array($vendorDir . '/sapi/vendor/src'),
 );

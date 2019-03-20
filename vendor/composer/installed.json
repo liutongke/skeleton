@@ -1,24 +1,22 @@
 [
     {
-        "name": "sapi/framework",
+        "name": "mysql/pdo",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://gitee.com/tongke/sapi-core.git",
-            "reference": "ea5156d4e2c5f57e8c7180655a89946af95cfa0e"
+        "dist": {
+            "type": "path",
+            "url": "D:/phpstudy/project/PDO_MySQL",
+            "reference": "df5d1543af610a9a54fa1f00513f7082c100b169",
+            "shasum": null
         },
         "require": {
-            "php": ">=7.0"
+            "php": ">=7.0.0"
         },
-        "time": "2018-04-22T16:48:19+00:00",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Sapi\\": "src",
-                "Sapi\\Core\\": "src/core",
-                "Sapi\\Server\\Adapter\\": "src/Server/Adapter"
+                "pdo\\": "src/"
             }
         },
         "license": [
@@ -26,10 +24,44 @@
         ],
         "authors": [
             {
-                "name": "PHP科科",
+                "name": "liutongke",
                 "email": "liutongke@live.com"
             }
         ],
-        "description": "The Sapi Framework."
+        "description": "this sapi framework core mysql pdo"
+    },
+    {
+        "name": "sapi/vendor",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "dist": {
+            "type": "path",
+            "url": "D:/phpstudy/project/sapi-vendor",
+            "reference": "7b28d4ddabf20e53d92fb24c67b535c245826bae",
+            "shasum": null
+        },
+        "require": {
+            "php": ">=7.0"
+        },
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Sapi\\": "src"
+            },
+            "files": [
+                "src/Function.php"
+            ]
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "liutongke",
+                "email": "liutongke@live.com"
+            }
+        ],
+        "description": "this is sapi vendor"
     }
 ]

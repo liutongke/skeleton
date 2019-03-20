@@ -4,29 +4,31 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit48abcfce17be24b457a7883d2701959b
+class ComposerStaticInitead2814020f7dca7ff4742d2430c3f1a
 {
+    public static $files = array (
+        '8b6f2f0e8d2ba75c5a2edd28011aa210' => __DIR__ . '/..' . '/sapi/vendor/src/Function.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'p' => 
+        array (
+            'pdo\\' => 4,
+        ),
         'S' => 
         array (
-            'Sapi\\Server\\Adapter\\' => 20,
-            'Sapi\\Core\\' => 10,
             'Sapi\\' => 5,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Sapi\\Server\\Adapter\\' => 
+        'pdo\\' => 
         array (
-            0 => __DIR__ . '/..' . '/sapi/framework/src/Server/Adapter',
-        ),
-        'Sapi\\Core\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sapi/framework/src/core',
+            0 => __DIR__ . '/..' . '/mysql/pdo/src',
         ),
         'Sapi\\' => 
         array (
-            0 => __DIR__ . '/..' . '/sapi/framework/src',
+            0 => __DIR__ . '/..' . '/sapi/vendor/src',
         ),
     );
 
@@ -37,9 +39,9 @@ class ComposerStaticInit48abcfce17be24b457a7883d2701959b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit48abcfce17be24b457a7883d2701959b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit48abcfce17be24b457a7883d2701959b::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit48abcfce17be24b457a7883d2701959b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitead2814020f7dca7ff4742d2430c3f1a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitead2814020f7dca7ff4742d2430c3f1a::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitead2814020f7dca7ff4742d2430c3f1a::$classMap;
 
         }, null, ClassLoader::class);
     }

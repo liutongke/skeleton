@@ -1,13 +1,18 @@
 {
   "require": {
-    "sapi/framework": "dev-master"
+    "sapi/vendor": "dev-master",
+    "mysql/pdo": "dev-master"
   },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://gitee.com/tongke/sapi-core.git"
+  "repositories": {
+    "sapi": {
+      "type": "path",
+      "url": "D:/phpstudy/project/sapi-vendor"
+    },
+    "mysql": {
+      "type": "path",
+      "url": "D:/phpstudy/project/PDO_MySQL"
     }
-  ],
+  },
   "autoload": {
     "classmap": [
       "app/controllers",

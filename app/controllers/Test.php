@@ -27,13 +27,21 @@
 
 namespace App\Controllers;
 
-use Sapi\kernal;
+use pdo\Config;
+use pdo\DB;
+use function Sapi\DI;
+use Sapi\Logs\Log;
 
 class Test
 {
     public function Test()
     {
-        return kernal::one()->logs->info([12213333333333333333333]);
+        return trigger_error('Trigger Error');
+        return Log::info('test');
+        return DI()->debugs;//false生产环境true开发环境
+        return Config::config();
+        return DB::table('test')->get();
+        return DI()->logs->info([12213333333333333333333]);
         return count(false);
         $modle = new Models();
         $arr = [
