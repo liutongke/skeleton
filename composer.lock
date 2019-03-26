@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd53beb754b8cd85b5c62e64692589b1",
+    "content-hash": "3fa3345696aba7bf58d9c0841a65335d",
     "packages": [
         {
             "name": "mysql/pdo",
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "D:/phpstudy/project/PDO_MySQL",
-                "reference": "df5d1543af610a9a54fa1f00513f7082c100b169",
+                "url": "D:/phpstudy/project/private/PDO_MySQL",
+                "reference": "4805eeb9e1dc7c163ec07775c18512afd28306c5",
                 "shasum": null
             },
             "require": {
@@ -29,19 +29,19 @@
             ],
             "authors": [
                 {
-                    "name": "liutongke",
+                    "name": "keke",
                     "email": "liutongke@live.com"
                 }
             ],
-            "description": "this sapi framework core mysql pdo"
+            "description": "this is example"
         },
         {
             "name": "sapi/vendor",
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "D:/phpstudy/project/sapi-vendor",
-                "reference": "7b28d4ddabf20e53d92fb24c67b535c245826bae",
+                "url": "D:/phpstudy/project/private/sapi-vendor",
+                "reference": "fe85e90462d7279f007ea37ad9e0270ff447fe94",
                 "shasum": null
             },
             "require": {

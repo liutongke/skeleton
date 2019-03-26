@@ -29,6 +29,7 @@ namespace App\Controllers;
 
 use pdo\Config;
 use pdo\DB;
+use pdo\MyPdo;
 use function Sapi\DI;
 use Sapi\Logs\Log;
 
@@ -36,11 +37,13 @@ class Test
 {
     public function Test()
     {
-        return trigger_error('Trigger Error');
-        return Log::info('test');
-        return DI()->debugs;//false生产环境true开发环境
-        return Config::config();
-        return DB::table('test')->get();
+//        return new tt();
+//        return trigger_error('Trigger Error');
+//        return Log::info('test');
+//        return DI()->debugs;//false生产环境true开发环境
+//        return Config::config();
+//        return DB::table('test');
+        return DB::table('test')->where(['id' => 13])->get();
         return DI()->logs->info([12213333333333333333333]);
         return count(false);
         $modle = new Models();

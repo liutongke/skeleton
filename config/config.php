@@ -26,11 +26,12 @@
  */
 return [
     'mysql' => [
-        'host' => 'localhost',
+        'type' => 'mysql',
+        'host' => '127.0.0.1',
         'port' => 3306,
-        'dbname' => '',
+        'dbname' => 'test',
         'charset' => 'utf8',
-        'user' => '',
+        'user' => 'root',
         'pwd' => 'root'
     ],
     'debug' => true,//false生产环境true开发环境

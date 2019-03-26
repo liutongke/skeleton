@@ -6,11 +6,11 @@
   "repositories": {
     "sapi": {
       "type": "path",
-      "url": "D:/phpstudy/project/sapi-vendor"
+      "url": "D:/phpstudy/project/private/sapi-vendor"
     },
     "mysql": {
       "type": "path",
-      "url": "D:/phpstudy/project/PDO_MySQL"
+      "url": "D:/phpstudy/project/private/PDO_MySQL"
     }
   },
   "autoload": {

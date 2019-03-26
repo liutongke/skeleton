@@ -1,0 +1,8 @@
+2019-03-25 18:16:35|error|{"errNo":1049,"errStr":"SQLSTATE[HY000] [1049] Unknown database 'test123'","errFile":"D:\\phpstudy\\project\\PDO_MySQL\\src\\MyPdo.php","errLine":119}
+2019-03-25 18:16:36|error|{"errNo":1049,"errStr":"SQLSTATE[HY000] [1049] Unknown database 'test123'","errFile":"D:\\phpstudy\\project\\PDO_MySQL\\src\\MyPdo.php","errLine":119}
+2019-03-25 18:19:37|error|{"errNo":1,"errStr":"SQLSTATE[HY000] [1049] Unknown database 'test123'","errFile":"D:\\phpstudy\\project\\PDO_MySQL\\src\\MyPdo.php","errLine":119}
+2019-03-25 18:22:21|error|{"errNo":1,"errStr":"SQLSTATE[HY000] [1049] Unknown database 'test123'","errFile":"D:\\phpstudy\\project\\PDO_MySQL\\src\\MyPdo.php","errLine":119}
+2019-03-25 18:31:24|error|{"errNo":1,"errStr":"SQLSTATE[HY000] [1049] Unknown database 'test123'","errFile":"D:\\phpstudy\\project\\PDO_MySQL\\src\\MyPdo.php","errLine":119}
+2019-03-25 18:31:27|error|{"errNo":1,"errStr":"SQLSTATE[HY000] [1049] Unknown database 'test123'","errFile":"D:\\phpstudy\\project\\PDO_MySQL\\src\\MyPdo.php","errLine":119}
+2019-03-25 18:31:30|error|{"errNo":1,"errStr":"SQLSTATE[HY000] [1049] Unknown database 'test123'","errFile":"D:\\phpstudy\\project\\PDO_MySQL\\src\\MyPdo.php","errLine":119}
+2019-03-25 18:31:32|error|{"errNo":1,"errStr":"SQLSTATE[HY000] [1049] Unknown database 'test123'","errFile":"D:\\phpstudy\\project\\PDO_MySQL\\src\\MyPdo.php","errLine":119}

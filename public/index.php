@@ -27,7 +27,8 @@
 // 定义项目路径
 //defined('API_ROOT') || define('API_ROOT', dirname(__DIR__) . '../');
 defined('API_ROOT') || define('API_ROOT', dirname(__DIR__));
+define('E_FATAL', E_ERROR | E_USER_ERROR | E_CORE_ERROR |
+    E_COMPILE_ERROR | E_RECOVERABLE_ERROR | E_PARSE);
 require API_ROOT . '\config\init.php';
-//var_dump($di->request);
 \Sapi\Sapi::run();//输出
 $di->response->output();
