@@ -4,42 +4,44 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit48abcfce17be24b457a7883d2701959b
+class ComposerStaticInit45a607a975ad03dbb9f5d115e7f9f1af
 {
+    public static $files = array (
+        '79ae0f0fd2fc8ee3ac161807c98dc5d0' => __DIR__ . '/../..' . '/app/Common/function.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
-            'Sapi\\Server\\Adapter\\' => 20,
-            'Sapi\\Core\\' => 10,
             'Sapi\\' => 5,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Sapi\\Server\\Adapter\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sapi/framework/src/Server/Adapter',
-        ),
-        'Sapi\\Core\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sapi/framework/src/core',
-        ),
         'Sapi\\' => 
         array (
-            0 => __DIR__ . '/..' . '/sapi/framework/src',
+            0 => __DIR__ . '/..' . '/api-swoole/sapi/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
     public static $classMap = array (
-        'App\\Controllers\\Test' => __DIR__ . '/../..' . '/app/controllers/Test.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit48abcfce17be24b457a7883d2701959b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit48abcfce17be24b457a7883d2701959b::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit48abcfce17be24b457a7883d2701959b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit45a607a975ad03dbb9f5d115e7f9f1af::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit45a607a975ad03dbb9f5d115e7f9f1af::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit45a607a975ad03dbb9f5d115e7f9f1af::$classMap;
 
         }, null, ClassLoader::class);
     }

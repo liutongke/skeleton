@@ -1,8 +1,8 @@
 <?php
 /*
  * User: keke
- * Date: 2019/3/16
- * Time: 16:09
+ * Date: 2022/9/5
+ * Time: 18:53
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -24,3 +24,14 @@
  *                   `=---='
  *——————————————————代码永无BUG —————————————————
  */
+
+namespace App\Controller;
+
+
+class TcpServe
+{
+    public function onReceive($server, $fd, $threadId, $data)
+    {
+        echo $data;
+    }
+}

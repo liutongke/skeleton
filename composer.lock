@@ -4,48 +4,47 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "914ddeed9fa96fbaa76e4ecf7ae3de93",
+    "content-hash": "f952a8b07ce391978305e1e12c4e53ab",
     "packages": [
         {
-            "name": "sapi/framework",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://gitee.com/tongke/sapi-core.git",
-                "reference": "ea5156d4e2c5f57e8c7180655a89946af95cfa0e"
-            },
-            "require": {
-                "php": ">=7.0"
+            "name": "api-swoole/sapi",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/var/www/html/apiswoole-core",
+                "reference": "49dcf9c279cbae4308678210052679d916a25b62"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Sapi\\": "src",
-                    "Sapi\\Core\\": "src/core",
-                    "Sapi\\Server\\Adapter\\": "src/Server/Adapter"
+                    "Sapi\\": "src/"
                 }
             },
-            "license": [
-                "MIT"
-            ],
             "authors": [
                 {
                     "name": "PHP科科",
                     "email": "liutongke@live.com"
                 }
             ],
-            "description": "The Sapi Framework.",
-            "time": "2018-04-22T16:48:19+00:00"
+            "description": "基于swoole实现的一个轻量级框架，支持http/websocket。",
+            "keywords": [
+                "php",
+                "swoole"
+            ],
+            "transport-options": {
+                "relative": false
+            }
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "sapi/framework": 20
+        "api-swoole/sapi": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

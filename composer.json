@@ -1,17 +1,27 @@
 {
+  "name": "api-swoole/skeleton",
+  "description": "基于swoole实现的一个轻量级框架，支持http/websocket。",
+  "type": "project",
+  "keywords": [
+    "php",
+    "swoole"
+  ],
   "require": {
-    "sapi/framework": "dev-master"
+    "api-swoole/sapi": "dev-main"
   },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "files": [
+      "app/Common/function.php"
+    ]
+  },
+  "minimum-stability": "dev",
   "repositories": [
     {
-      "type": "git",
-      "url": "https://gitee.com/tongke/sapi-core.git"
+      "type": "path",
+      "url": "/var/www/html/apiswoole-core"
     }
-  ],
-  "autoload": {
-    "classmap": [
-      "app/controllers",
-      "app/models"
-    ]
-  }
+  ]
 }

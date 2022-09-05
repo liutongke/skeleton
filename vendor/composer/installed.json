@@ -1,35 +1,38 @@
-[
-    {
-        "name": "sapi/framework",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://gitee.com/tongke/sapi-core.git",
-            "reference": "ea5156d4e2c5f57e8c7180655a89946af95cfa0e"
-        },
-        "require": {
-            "php": ">=7.0"
-        },
-        "time": "2018-04-22T16:48:19+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Sapi\\": "src",
-                "Sapi\\Core\\": "src/core",
-                "Sapi\\Server\\Adapter\\": "src/Server/Adapter"
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "PHP科科",
-                "email": "liutongke@live.com"
-            }
-        ],
-        "description": "The Sapi Framework."
-    }
-]
+{
+    "packages": [
+        {
+            "name": "api-swoole/sapi",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/var/www/html/apiswoole-core",
+                "reference": "49dcf9c279cbae4308678210052679d916a25b62"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Sapi\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "PHP科科",
+                    "email": "liutongke@live.com"
+                }
+            ],
+            "description": "基于swoole实现的一个轻量级框架，支持http/websocket。",
+            "keywords": [
+                "php",
+                "swoole"
+            ],
+            "transport-options": {
+                "relative": false
+            },
+            "install-path": "../api-swoole/sapi"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

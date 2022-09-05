@@ -1,8 +1,8 @@
 <?php
 /*
  * User: keke
- * Date: 2018/4/22
- * Time: 13:49
+ * Date: 2022/9/5
+ * Time: 23:49
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -25,19 +25,28 @@
  *——————————————————代码永无BUG —————————————————
  */
 
-namespace App\Controllers;
+namespace App\Controller;
 
-use Sapi\Core\Api;
+use Sapi\Rule;
 
-class Test
+class Hello extends Rule
 {
-    public function Test()
+    public function rule()
     {
-//        echo 'success';
-        $arr = [
-            'keke' => '0825',
-            'result' => 'success'
+
+    }
+
+    public function index(\Swoole\Http\Request $request, \Swoole\Http\Response $response)
+    {
+        DI()->logger->debug("日志测试debug");
+        DI()->logger->info("日志测试info");
+        DI()->logger->notice("日志测试notice");
+        DI()->logger->waring("日志测试waring");
+        DI()->logger->error("日志测试error");
+        return [
+            'code' => 200,
+            'data' => 'hello world',
+            'conf' => DI()->config->get('conf.tcp'),
         ];
-        return Api::response($arr);
     }
 }
