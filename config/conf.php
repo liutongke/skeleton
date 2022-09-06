@@ -26,11 +26,18 @@
  */
 return [
     'debug' => true,//调试模式
+    'udp' => [
+        'host' => '0.0.0.0',
+        'port' => 9502,
+        'sockType' => SWOOLE_SOCK_UDP,
+        'events' => [
+            ['packet', \App\Controller\UdpServe::class, 'onPacket'],
+        ],
+        'settings' => [],
+    ],
     'tcp' => [
-        'type' => 1,//启动哪种服务 1 WebSocket
         'host' => '0.0.0.0',
         'port' => 9500,
-        'ssl' => false,
         'sockType' => SWOOLE_SOCK_TCP,
         'events' => [
             ['receive', \App\Controller\TcpServe::class, 'onReceive'],
@@ -40,7 +47,6 @@ return [
     'ws' => [
         'host' => '0.0.0.0',
         'port' => 9501,
-        'ssl' => false,
         'events' => [
             ['open', \Sapi\Events::class, 'onOpen'],
             ['message', \Sapi\Events::class, 'onMessage'],
