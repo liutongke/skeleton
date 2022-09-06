@@ -1,8 +1,8 @@
 <?php
 /*
  * User: keke
- * Date: 2021/7/12
- * Time: 18:12
+ * Date: 2022/9/6
+ * Time: 15:25
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -27,21 +27,20 @@
 
 namespace App\Controller;
 
-
 use Sapi\Api;
 
-class App extends Api
+class Demo extends Api
 {
     public function rule()
     {
         return [
-//            'Index' => [
-//                'pic' => ['name' => 'pic', 'require' => true]
-//            ]
+            'Index' => [
+                'pic' => ['name' => 'pic', 'require' => true]
+            ]
         ];
     }
 
-    public function Index(\Swoole\Http\Request $request, \Swoole\Http\Response $response): array
+    public function demo(\Swoole\Http\Request $request, \Swoole\Http\Response $response): array
     {
 //        $redis = \App\Ext\Redis::getInstance();
 //        $data = [];
@@ -57,18 +56,7 @@ class App extends Api
         return [
             "code" => 200,
             "msg" => "hello World!",
-            "data" => [
-                "id" => 1,
-//                "getUrl" => $request->get['keke'],
-                "name" => "Reds",
-                "Colors" => ["Crimson", "Red", "Ruby", "Maroon"]
-            ]
+            "data" => demo
         ];
-    }
-
-    public function post(\Swoole\Http\Request $request, \Swoole\Http\Response $response): array
-    {
-        $tm = date('Y-m-d H:i:s');
-        return $request->post;
     }
 }

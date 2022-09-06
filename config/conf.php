@@ -45,7 +45,7 @@ return [
             ['open', \Sapi\Events::class, 'onOpen'],
             ['message', \Sapi\Events::class, 'onMessage'],
             ['close', \Sapi\Events::class, 'onClose'],
-//            ['request', \Sapi\Events::class, 'onRequest'],
+            ['request', \Sapi\Events::class, 'onRequest'],
             ['Task', \Sapi\Events::class, 'onTask'],
             ['Finish', \Sapi\Events::class, 'onFinish'],
             ['workerStart', \Sapi\Events::class, 'onWorkerStart'],

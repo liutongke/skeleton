@@ -1,8 +1,8 @@
 <?php
 /*
  * User: keke
- * Date: 2021/7/14
- * Time: 17:01
+ * Date: 2022/9/6
+ * Time: 15:25
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -27,31 +27,37 @@
 
 namespace App\Controller;
 
+use Sapi\Api;
 
-use Sapi\Rule;
-
-class WsController extends Rule
+class Auth extends Base
 {
+
     public function rule()
     {
         return [
-            'stop' => [
-                'data' => ['name' => 'data', 'require' => true, 'type' => 'string']
+            'login' => [
+                'username' => ['name' => 'username', 'require' => true]
             ]
         ];
     }
 
-    public function index(\Swoole\WebSocket\Server $server, array $msg): array
+    public function login(\Swoole\Http\Request $request, \Swoole\Http\Response $response): array
     {
-        return ['err' => 200, 'data' => 'hello apiSwoole'];
-    }
-
-    public function stop(\Swoole\WebSocket\Server $server, array $msg): array
-    {
-//        $msg["keke"];
+//        $redis = \App\Ext\Redis::getInstance();
+//        $data = [];
+//        $data["test"];
 //        new data();
-        $redis = \App\Ext\Redis::getInstance();//        var_dump($redis);
-        $redis->redis->set(rand(10000, 99999), json_encode(\Swoole\Coroutine::stats()), 60);//此处产生协程调度，cpu切到下一个协程(下一个请求)，不会阻塞进程
-        return ["code" => 0, "msg" => "123123"];
+//        var_dump($redis);
+//        $redis->set("tset", 1, 600);
+//        $key = md5(uniqid(mt_rand(1, 999999)));
+//        $redis->redis->set($key, $key);
+//        $response->end("<h1>hello swoole!</h1>");
+//        DI()->logger->info("日志测试{$key}");
+
+        return [
+            "code" => 200,
+            "msg" => "hello World!",
+            "data" => 'api-swoole'
+        ];
     }
 }

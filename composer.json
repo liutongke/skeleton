@@ -4,9 +4,13 @@
   "type": "project",
   "keywords": [
     "php",
-    "swoole"
+    "swoole",
+    "api-swoole",
+    "coroutine"
   ],
   "require": {
+    "php": ">=7.4",
+    "ext-swoole": ">=4.5",
     "api-swoole/sapi": "dev-main"
   },
   "autoload": {

@@ -1,8 +1,8 @@
 <?php
 /*
  * User: keke
- * Date: 2022/9/5
- * Time: 23:49
+ * Date: 2022/9/6
+ * Time: 17:07
  *——————————————————佛祖保佑 ——————————————————
  *                   _ooOoo_
  *                  o8888888o
@@ -27,26 +27,15 @@
 
 namespace App\Controller;
 
-use Sapi\Rule;
+use Sapi\Api;
 
-class Hello extends Rule
+class Base extends Api
 {
-    public function rule()
+    public function userCheck()
     {
-
+        if (true) {
+            return "token过期";
+        }
     }
 
-    public function index(\Swoole\Http\Request $request, \Swoole\Http\Response $response)
-    {
-        DI()->logger->debug("日志测试debug");
-        DI()->logger->info("日志测试info");
-        DI()->logger->notice("日志测试notice");
-        DI()->logger->waring("日志测试waring");
-        DI()->logger->error("日志测试error");
-        return [
-            'code' => 200,
-            'data' => 'hello world',
-            'conf' => DI()->config->get('conf.tcp'),
-        ];
-    }
 }
