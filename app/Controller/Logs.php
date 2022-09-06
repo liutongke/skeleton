@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use Sapi\Api;
@@ -17,8 +16,10 @@ class Logs
         DI()->logger->error("日志测试error");
         return [
             'code' => 200,
-            'data' => 'hello world',
-            'conf' => DI()->config->get('conf.tcp'),
+            'data' => [
+                'info' => 'log',
+                'conf' => DI()->config->get('conf.tcp'),
+            ],
         ];
     }
 }
