@@ -3,7 +3,8 @@
 
 需要确保运行环境达到了以下的要求：
 *   PHP >= 7.4
-*   Swoole PHP 扩展 >= 4.5.9
+*   Swoole PHP 扩展 >= 4.5
+*   Redis PHP 扩展 （如需使用 Redis 客户端）
 
 ### **1.2通过 Composer 创建项目**
 
@@ -362,7 +363,7 @@ return [
 
 ##### **补充：websocket客户端消息传入格式**
 
- 客户端发送的数据信息，默认需以json格式传送，必须包含id、path、data三个字段。
+客户端发送的数据信息，默认需以json格式传送，必须包含id、path、data三个字段。
 * `id`字段消息体的唯一标识。
 * `path`字段是`./confg/websocket.php`路由声明的访问地址。
 * `data`字段是项目的具体消息参数，控制方法默认的`$msg`。
