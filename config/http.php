@@ -9,5 +9,9 @@ return [
         return 'hello';
     }),
     \HttpRouter("/hello", "App\Controller\Hello@index"),
-    \HttpRouter("/redis", "App\Controller\RedisConn@index"),
+    \HttpRouter("/redis/setData", "App\Controller\RedisConn@setData"),
+    \HttpRouter("/mysql/get", "App\Controller\MysqlDemo@getOne"),
+    \HttpRouter("/mysql/save", "App\Controller\MysqlDemo@save"),
+    \HttpRouter("/mysql/del", "App\Controller\MysqlDemo@del"),
+    \HttpRouter("/mysql/update", "App\Controller\MysqlDemo@update"),
 ];
