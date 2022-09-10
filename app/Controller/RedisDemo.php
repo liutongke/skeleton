@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Ext\Redis;
 
-class RedisConn
+class RedisDemo
 {
     public function setData(\Swoole\Http\Request $request, \Swoole\Http\Response $response)
     {

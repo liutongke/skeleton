@@ -2,7 +2,7 @@
 return [
     'workerStart' => [
         [\App\Ext\Pool::class, 'startPool'],//启动连接池
-        [\App\Controller\EventsDemo::class, 'workerStart'],
+//        [\App\Controller\EventsDemo::class, 'workerStart'],
     ],
     'open' => [
         [\App\Controller\EventsDemo::class, 'open'],
@@ -15,5 +15,5 @@ return [
     ],
     'finish' => [
         [\App\Controller\EventsDemo::class, 'finish'],
-    ],//定制特定事件
-];
+    ],
+];//定制特定事件

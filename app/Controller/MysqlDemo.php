@@ -6,9 +6,16 @@ use Simps\DB\BaseModel;
 
 class MysqlDemo
 {
+
+//CREATE TABLE `user_info` (
+//  `uid` int(11) NOT NULL AUTO_INCREMENT,
+//  `nick` varchar(15) DEFAULT NULL,
+//  PRIMARY KEY (`uid`)
+//) ENGINE=InnoDB AUTO_INCREMENT=1000001 DEFAULT CHARSET=utf8;
+
     public function getOne(\Swoole\Http\Request $request, \Swoole\Http\Response $response)
     {
-        $uid = $request->get['uid'];
+        $uid = $request->post['uid'];
 
         $database = new BaseModel();
         $res = $database->select("user_info", [
@@ -30,10 +37,10 @@ class MysqlDemo
 
     public function save(\Swoole\Http\Request $request, \Swoole\Http\Response $response)
     {
-        $username = $request->get['username'];
+        $username = $request->post['username'];
         $database = new BaseModel();
         $last_user_id = $database->insert("user_info", [
-            "uid" => time(),
+            "uid" => '1662799475',
             "nick" => $username,
         ]);
 
@@ -49,7 +56,7 @@ class MysqlDemo
 
     public function del(\Swoole\Http\Request $request, \Swoole\Http\Response $response)
     {
-        $uid = $request->get['uid'];
+        $uid = $request->post['uid'];
 
         $database = new BaseModel();
 
@@ -69,8 +76,8 @@ class MysqlDemo
 
     public function update(\Swoole\Http\Request $request, \Swoole\Http\Response $response)
     {
-        $uid = $request->get['uid'];
-        $username = $request->get['username'];
+        $uid = $request->post['uid'];
+        $username = $request->post['username'];
 
         $database = new BaseModel();
 
