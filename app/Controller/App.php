@@ -20,16 +20,11 @@ class App extends Api
         return [
             "code" => 200,
             "msg" => "hello World!",
+            'tm' => date('Y-m-d H:i:s'),
             "data" => [
                 'name' => 'api-swoole',
                 'version' => '1.0.0',
             ],
         ];
-    }
-
-    public function post(\Swoole\Http\Request $request, \Swoole\Http\Response $response): array
-    {
-        $tm = date('Y-m-d H:i:s');
-        return $request->post;
     }
 }

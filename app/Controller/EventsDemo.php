@@ -4,8 +4,12 @@
 namespace App\Controller;
 
 
+use Sapi\Singleton;
+
 class EventsDemo
 {
+    use Singleton;
+
     public function workerStart(...$args)
     {
         var_dump('workerStart');
