@@ -3,7 +3,7 @@ return [
     'version' => '1.0.2',
     'debug' => true,//调试模式
     'log' => [
-        'displayConsole' => false,//true控制台打印日志
+        'displayConsole' => true,//true控制台打印日志
         'saveLog' => true,//保存日志
     ],
     'udp' => [
@@ -64,6 +64,6 @@ return [
 //        SWOOLE_LOG_NONE	相当于关闭日志信息，日志信息不会抛出
     ],
     'process' => [
-//        [\App\Example\Process::class, 'addProcess']
+        [\App\Example\Process::class, 'addProcess']
     ],//添加用户自定义的工作进程
 ];

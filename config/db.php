@@ -1,19 +1,19 @@
 <?php
 return [
     'redis' => [
-        'host' => '192.168.1.106',//Redis服务器地址
+        'host' => '',//Redis服务器地址
         'port' => 6379,//指定 Redis 监听端口
-        'auth' => 'REMOVED',//登录密码
+        'auth' => '',//登录密码
         'db_index' => 2,//指定数据库
         'time_out' => 600,//
         'size' => 64,//连接池数量
     ],
     'mysql' => [
-        'host' => '192.168.1.106',
+        'host' => '',
         'port' => 3306,
-        'database' => 'demo',
-        'username' => 'root',
-        'password' => 'REMOVED',
+        'database' => '',
+        'username' => '',
+        'password' => '',
         'charset' => 'utf8',
         'unixSocket' => null,
         'options' => [
