@@ -14,6 +14,6 @@ COPY swoole.conf /etc/supervisor/service.d
 COPY . /var/www/html
 
 WORKDIR /var/www/html
-RUN composer install --no-cache
+RUN composer update
 
 ENTRYPOINT ["/entrypoint.sh"]
