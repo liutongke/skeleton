@@ -1,8 +1,9 @@
 <?php
 return [
+    'version' => '1.0.2',
     'debug' => true,//调试模式
     'log' => [
-        'displayConsole' => true,//true控制台打印日志
+        'displayConsole' => false,//true控制台打印日志
         'saveLog' => true,//保存日志
     ],
     'udp' => [
@@ -10,7 +11,7 @@ return [
         'port' => 9502,
         'sockType' => SWOOLE_SOCK_UDP,
         'events' => [
-            ['packet', \App\Controller\UdpServe::class, 'onPacket'],
+            ['packet', \App\Example\UdpServe::class, 'onPacket'],
         ],
         'settings' => [],
     ],
@@ -19,7 +20,9 @@ return [
         'port' => 9501,
         'sockType' => SWOOLE_SOCK_TCP,
         'events' => [
-            ['receive', \App\Controller\TcpServe::class, 'onReceive'],
+            ['Receive', \App\Example\TcpServe::class, 'onReceive'],
+            ['connect', \App\Example\TcpServe::class, 'onConnect'],
+            ['close', \App\Example\TcpServe::class, 'onClose'],
         ],
         'settings' => [],
     ],
@@ -60,7 +63,7 @@ return [
 //        SWOOLE_LOG_ERROR	错误信息，系统发生了某些关键性的错误，需要即时解决
 //        SWOOLE_LOG_NONE	相当于关闭日志信息，日志信息不会抛出
     ],
-//    'process' => [
-//        [\App\Controller\Process::class, 'addProcess']
-//    ],//添加用户自定义的工作进程
+    'process' => [
+//        [\App\Example\Process::class, 'addProcess']
+    ],//添加用户自定义的工作进程
 ];

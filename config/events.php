@@ -5,15 +5,15 @@ return [
 //        [\App\Controller\EventsDemo::class, 'workerStart'],
     ],
     'open' => [
-        [\App\Controller\EventsDemo::class, 'open'],
+        [\App\Example\EventsDemo::class, 'open'],
     ],
-    'close' => [
-        [\App\Controller\EventsDemo::class, 'close'],
-    ],
+//    'close' => [
+//        [\App\Controller\EventsDemo::class, 'close'],
+//    ],
     'task' => [
-        [\App\Controller\EventsDemo::class, 'task'],
+        [\App\Example\EventsDemo::class, 'task'],
     ],
     'finish' => [
-        [\App\Controller\EventsDemo::class, 'finish'],
+        [\App\Example\EventsDemo::class, 'finish'],
     ],
 ];//定制特定事件

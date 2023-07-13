@@ -17,6 +17,24 @@ function HttpRouter($url, $callable)
     \Sapi\Router\HttpRouter::Register($url, $callable);
 }
 
+//保存文件
+function saveFile(\Swoole\Http\Request $request, string $filePath): bool
+{
+    if (isset($request->files['file'])) {
+        $file = $request->files['file'];
+        $tempPath = $file['tmp_name'];
+        //        $targetPath = $filePath . $file['name'];
+        $targetPath = $filePath . md5(uniqid() . microtime(true)) . '.jpg';
+
+        if (move_uploaded_file($tempPath, $targetPath)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    return false;
+}
+
 //不中断格式化打印
 function dump($data)
 {

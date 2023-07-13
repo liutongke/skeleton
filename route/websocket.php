@@ -1,6 +1,6 @@
 <?php
 
 return [
-    WsRouter("/", "\App\Controller\Websocket@index"),
-    WsRouter("/login", "\App\Controller\Websocket@login"),
+    WsRouter("/hello", "\App\Example\WebsocketHello@hello"),
+    WsRouter("/login", "\App\Example\Websocket@Index"),
 ];

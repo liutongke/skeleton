@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Controller;
-
-use Sapi\Api;
+namespace App\Example;
 
 class Logs
 {
@@ -18,7 +16,6 @@ class Logs
             'code' => 200,
             'data' => [
                 'info' => 'log',
-                'conf' => DI()->config->get('conf.tcp'),
             ],
         ];
     }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller;
+namespace App\Example;
 
 
 use Sapi\Singleton;
@@ -17,6 +17,9 @@ class EventsDemo
 
     public function open(...$args)
     {
+        if (DI()->config->get('conf.debug')) {
+            echo "server: handshake success with fd{$args[0][2]->fd}\n";
+        }
         var_dump('open');
     }
 

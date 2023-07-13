@@ -1,17 +1,15 @@
 <?php
 
-namespace App\Controller;
+namespace App\Example;
 
-use Sapi\Api;
-
-class Auth extends Base
+class Auth extends HttpBase
 {
 
     public function rule()
     {
         return [
             'login' => [
-                'username' => ['name' => 'username', 'require' => true]
+                'username' => ['name' => 'username', 'require' => true, 'type' => 'string', 'source' => 'post', 'message' => '必须携带username'],
             ]
         ];
     }

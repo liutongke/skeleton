@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Example;
 
 use App\Ext\Redis;
 
