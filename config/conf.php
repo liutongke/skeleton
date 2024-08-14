@@ -64,6 +64,27 @@ return [
 //        SWOOLE_LOG_NONE	相当于关闭日志信息，日志信息不会抛出
     ],
     'process' => [
-        [\App\Example\Process::class, 'addProcess']
+//        [\App\Example\Process::class, 'addProcess']
     ],//添加用户自定义的工作进程
+    'table' => [
+        'size' => 1024,//指定表格的最大行数
+        'conflict_proportion' => 0.25,//哈希冲突的最大比例,最小为 0.2，最大为 1
+        'column' => [
+            [
+                'name' => 'key',//指定字段的名称
+                'type' => \Swoole\Table::TYPE_STRING,//指定字段类型 \Swoole\Table::TYPE_INT=1 \Swoole\Table::TYPE_STRING=3 \Swoole\Table::TYPE_FLOAT=2
+                'size' => 64,//指定字符串字段的最大长度【字符串类型的字段必须指定 $size】
+            ],
+            [
+                'name' => 'val',//指定字段的名称
+                'type' => \Swoole\Table::TYPE_STRING,//指定字段类型 \Swoole\Table::TYPE_INT \Swoole\Table::TYPE_STRING \Swoole\Table::TYPE_FLOAT
+                'size' => 1024,//指定字符串字段的最大长度【字符串类型的字段必须指定 $size】
+            ],
+            [
+                'name' => 'num',//指定字段的名称
+                'type' => \Swoole\Table::TYPE_INT,//指定字段类型 \Swoole\Table::TYPE_INT \Swoole\Table::TYPE_STRING \Swoole\Table::TYPE_FLOAT
+                'size' => 1024,//指定字符串字段的最大长度【字符串类型的字段必须指定 $size】
+            ],
+        ]
+    ],//高性能共享内存 Table
 ];

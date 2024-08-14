@@ -37,7 +37,7 @@ class App extends Api
                 'boolValue' => $request->post['boolValue'],
                 'arrayValue' => $request->post['arrayValue'],
                 'x-token' => $request->header['x-token'],
-                'file' => saveFile($request, './tmp/')
+                'file' => saveFile($request, './storage/pic/')
             ],
         ];
     }

@@ -60,3 +60,14 @@ function sys_download_file($path, $name = null, $isRemote = false, $isSSL = fals
         file_put_contents("test.pdf", $temp);
     }
 }
+
+function prettyPrint($data)
+{
+    echo "<pre>";
+    if (is_array($data) || is_object($data)) {
+        print_r($data);
+    } else {
+        echo $data;
+    }
+    echo "</pre>";
+}
